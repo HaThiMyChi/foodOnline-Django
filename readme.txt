@@ -12,3 +12,19 @@ Install django
 - django-admin startproject "tencandat" .
 
 
+Khi tao folder templates, css, images... phải nằm cùng cấp với thư mục gốc của python và import nó trong DIRS CỦA TEMPLATES, trong file settings.py
+
+Run python
+- py manage.py runserver
+
+Create Superuser
+- python manage.py migrate
+- python manage.py createsuperuser 
+(dùng để tạo user/password khi đăng nhập vào admin)
+
+
+
+
+
+
+
