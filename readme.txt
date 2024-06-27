@@ -18,9 +18,20 @@ Run python
 - py manage.py runserver
 
 Create Superuser
-- python manage.py migrate
+- python manage.py migrate (dể nó migrate ra database, nếu sử dụng postgresql thì cũng chạy câu này)
 - python manage.py createsuperuser 
 (dùng để tạo user/password khi đăng nhập vào admin)
+
+
+======
+STATIC_ROOT = BASE_DIR /'static' (là nó nằm cùng cấp với thư mục python) root directory
+
+
+https://pypi.org/project/python-decouple/ (kham khao cai nay)
+- pip install python-decouple
+
+
+
 
 
 
