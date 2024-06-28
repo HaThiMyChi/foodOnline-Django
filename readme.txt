@@ -31,6 +31,16 @@ https://pypi.org/project/python-decouple/ (kham khao cai nay)
 - pip install python-decouple
 
 
+- python manage.py startapp "tencandat" (dùng để tạo models, views, admin file tương tác với sql), nó tạo ra app
+    và import "tencandat" này vào chỗ 'INSTALLED_APPS' trong settings.py
+
+- python manage.py makemigrations  (chạy sau khi tạo fields trong models.py)
+
+- python manage.py migrate
+
+
+    
+
 
 
 
