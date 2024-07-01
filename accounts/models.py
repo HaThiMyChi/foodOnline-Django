@@ -77,8 +77,11 @@ class User(AbstractBaseUser):
         return True
     
 
+# Kết luận : makemigrations : tạo migrations cho những thay đổi sqlmigrate: check sql trước khi apply 
+# migrate: apply vào những thay đổi vào db 
+# Note: Bạn có thể sử dụng 1 câu lệnh duy nhất python manage.py makemigrations <app_name> && python manage.py migrate
 class UserProfile(models.Model):
-    user = OneToOneField(User, on_delete=models.CASCADE, null=True)
+    user = OneToOneField(User, on_delete=models.CASCADE, null=True) # ForeignKey (User)
     profile_picture = models.ImageField(upload_to='users/profile_pictures', blank=True, null=True)
     cover_photo = models.ImageField(upload_to='users/cover_photos', blank=True, null=True)
     address_line_1 = models.CharField(max_length=50, blank=True, null=True)
@@ -92,5 +95,9 @@ class UserProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    #  Bạn thấy hàm __str__() được khai báo trong class nó tương tự như method toString trong Java với object. 
+    # Ở đây bạn có thể override nó trong class ở Python giúp bạn hiển thị friendly name trong object. 
     def __str__(self):
         return self.user.email
+
+
