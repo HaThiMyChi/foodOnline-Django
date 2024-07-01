@@ -5,4 +5,4 @@ from django.http.response import HttpResponse
 # Create your views here.
 
 def registerUser(request):
-    return HttpResponse('This is a user reg form')
+    return render(request, 'accounts/registerUser.html')
