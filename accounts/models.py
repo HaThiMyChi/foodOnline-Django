@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models  import AbstractBaseUser, BaseUserManager
 from django.db.models.fields.related import ForeignKey, OneToOneField
+from django.dispatch import receiver
+from django.db.models.signals import post_save, pre_save
 
 
 # Create your models here.
@@ -99,5 +101,4 @@ class UserProfile(models.Model):
     # Ở đây bạn có thể override nó trong class ở Python giúp bạn hiển thị friendly name trong object. 
     def __str__(self):
         return self.user.email
-
 
