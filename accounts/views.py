@@ -30,6 +30,9 @@ def registerUser(request):
             user.save()
             print('User is created')
             return redirect('registerUser')
+        else:
+            print('invalid form')
+            print(form.errors)
     else:
 
         form = UserForm()
