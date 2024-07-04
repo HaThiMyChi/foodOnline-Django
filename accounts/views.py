@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 from vendor.forms import VendorForm
 from .forms import UserForm
 from .models import User, UserProfile
-from django.contrib import messages
+from django.contrib import messages, auth
 
 
 # Create your views here.
@@ -89,10 +89,27 @@ def registerVendor(request):
 
 
 def login(request):
+    if  request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = auth.authenticate(email=email, password=password)
+        print('user', user)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'You are now logged in.')
+            return redirect('login')
+        else:
+            messages.error(request, 'Invalid login credentials')
+            return redirect('login')
+
+
     return render(request, 'accounts/login.html')
 
 def logout(request):
-    return
+    auth.logout(request)
+    messages.info(request, 'You are logged out.')
+    return redirect('login')
 
 def dashboard(request):
-    return
+    return render(request, 'accounts/dashboard.html')
