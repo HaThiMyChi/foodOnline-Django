@@ -79,6 +79,14 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
     
+    def get_role(self):
+        if self.role == 1:
+            user_role = 'Vendor'
+        elif self.role == 2:
+            user_role = 'Customer'
+
+        return user_role
+    
 
 # Kết luận : makemigrations : tạo migrations cho những thay đổi sqlmigrate: check sql trước khi apply 
 # migrate: apply vào những thay đổi vào db 
