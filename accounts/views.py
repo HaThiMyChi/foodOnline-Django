@@ -98,6 +98,10 @@ def registerVendor(request):
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()
+
+            # Send verification email
+            send_verification_email(request, user)
+
             messages.success(request, 'Your account has been registered sucessfully! Please wait for approval.')
             return redirect('registerVendor')
         else:
@@ -113,6 +117,13 @@ def registerVendor(request):
         'v_form': v_form
     }
     return render(request, 'accounts/registerVendor.html', context)
+
+
+def activate(request, uidb64, token):
+    # Activate the user by setting the is_active status to True
+
+    return
+
 
 def login(request):
     print('request.user.is_authenticated', request.user.is_authenticated)
