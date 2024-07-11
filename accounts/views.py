@@ -154,6 +154,9 @@ def login(request):
     elif request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
+        print('email', email)
+        print('password', password)
+        print('auth',auth.authenticate )
 
         user = auth.authenticate(email=email, password=password)
 
