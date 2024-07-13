@@ -106,6 +106,8 @@ class UserProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    def full_address(self):
+        return f'{self.address_line_2}, {self.address_line_2}'
     #  Bạn thấy hàm __str__() được khai báo trong class nó tương tự như method toString trong Java với object. 
     # Ở đây bạn có thể override nó trong class ở Python giúp bạn hiển thị friendly name trong object. 
     def __str__(self):
